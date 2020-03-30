@@ -14,5 +14,5 @@ A calendar built with jQuery
 
 * Create event listeners for Event Column and for "Save" button
 
-* Update CSS of Event rows based off current time (grey, green, red)
+* Update CSS of Event rows based off current time (grey, green, red) (Use "Contextual classes"? from Bootstrap)
 
