@@ -93,6 +93,12 @@ textarea{
   font-size: x-large;
 }
 
+#eventForms {
+  border: none;
+  box-shadow: none;
+  
+}
+
 
 
 

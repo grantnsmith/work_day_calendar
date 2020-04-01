@@ -1,10 +1,8 @@
 $(document).ready(function() {
 
-var currentDay = moment().format('MMMM Do YYYY');
-
-console.log(currentDay);
-
-$("#currentDay").text(currentDay);
+// Adding current date to the top of the page
+var currentDate = moment().format('MMMM Do YYYY');
+$("#currentDay").text(currentDate);
 
 
 
@@ -15,3 +13,4 @@ $("#currentDay").text(currentDay);
 });
 
 
+// To change colors in table us class="table-danger" (red); "table-success" (green) or "table-secondary" (grey) "
