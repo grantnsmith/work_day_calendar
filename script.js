@@ -5,20 +5,21 @@ var currentDate = moment().format('dddd MMMM Do YYYY');
 $("#currentDay").text(currentDate);
 
 // Add function to check localStorage for userEdits and render them to the page
+// function updateFromLocalStorage() {
+//     var userEdits = JSON.parse(localStorage.getItem("userEdits"));
+  
+//     if (userEdits !== null) {
+//       highScore = storedHighScore;
 
-
-// Saving user edits
-function saveEdits() {
-    var userInput = document.getElementsByClassName("eventCol");
-    var userInput = eventFormEl.innerHTML;
-    localStorage.setItem("userEdits", JSON.stringify(userInput));
-    console.log("UserInput: " + userInput);
-}
 
 // Save Event button
 $(".saveBtn").on("click", function() {
-    console.log("Button clicked");
-    saveEdits();
+    var currentEventID = event.target.parentElement.previousElementSibling.id;
+    console.log(currentEventID);
+    var currentTableCell = event.target.parentElement.previousElementSibling;
+    console.log(currentTableCell.innerText);
+    localStorage.setItem(["userEdits"+currentEventID], JSON.stringify(currentTableCell.innerText));
+   
 });
 
 // Setting interval to run checkTime function every 10 seconds
