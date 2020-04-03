@@ -4,13 +4,47 @@ $(document).ready(function() {
 var currentDate = moment().format('dddd MMMM Do YYYY');
 $("#currentDay").text(currentDate);
 
-// Add function to check localStorage for userEdits and render them to the page
-// function updateFromLocalStorage() {
-//     var userEdits = JSON.parse(localStorage.getItem("userEdits"));
-  
-//     if (userEdits !== null) {
-//       highScore = storedHighScore;
+updateFromLocalStorage();
 
+// Add function to check localStorage for userEdits and render them to the page
+function updateFromLocalStorage() {
+    var userEdits9 = JSON.parse(localStorage.getItem("userEdits9"));
+    if (userEdits9 !== null) {
+      $("#9").text(userEdits9);
+    };
+    var userEdits10 = JSON.parse(localStorage.getItem("userEdits10"));
+    if (userEdits10 !== null) {
+      $("#10").text(userEdits10);
+    };
+    var userEdits11 = JSON.parse(localStorage.getItem("userEdits11"));
+    if (userEdits11 !== null) {
+      $("#11").text(userEdits11);
+    };
+    var userEdits12 = JSON.parse(localStorage.getItem("userEdits12"));
+    if (userEdits12 !== null) {
+      $("#12").text(userEdits12);
+    };
+    var userEdits13 = JSON.parse(localStorage.getItem("userEdits13"));
+    if (userEdits13 !== null) {
+      $("#13").text(userEdits13);
+    };
+    var userEdits14 = JSON.parse(localStorage.getItem("userEdits14"));
+    if (userEdits14 !== null) {
+      $("#14").text(userEdits14);
+    };
+    var userEdits15 = JSON.parse(localStorage.getItem("userEdits15"));
+    if (userEdits15 !== null) {
+      $("#15").text(userEdits15);
+    };
+    var userEdits16 = JSON.parse(localStorage.getItem("userEdits16"));
+    if (userEdits16 !== null) {
+      $("#16").text(userEdits16);
+    };
+    var userEdits17 = JSON.parse(localStorage.getItem("userEdits17"));
+    if (userEdits17 !== null) {
+      $("#17").text(userEdits17);
+    };
+};
 
 // Save Event button
 $(".saveBtn").on("click", function() {
@@ -37,9 +71,13 @@ function renderScreen() {
     // element with that ID and change this attribue (addClass "table-danger")
     // Those with id's that are less than (addClass - "table-secondary")
     // Those with id's that are greater than (addClass - "table-success")
-}
+};
 
-// renderScreen();
+// Clear All Events button, clears localStorage and all event column text
+$(".clearEventsBtn").on("click", function(){
+    localStorage.clear();
+    $(".eventCol").text("");
+});
 
 });
 
