@@ -4,7 +4,9 @@ $(document).ready(function() {
 var currentDate = moment().format('dddd MMMM Do YYYY');
 $("#currentDay").text(currentDate);
 
+// Starting functions - pull from localStorage and update screen based off time
 updateFromLocalStorage();
+renderScreen();
 
 // Add function to check localStorage for userEdits and render them to the page
 function updateFromLocalStorage() {
@@ -56,21 +58,33 @@ $(".saveBtn").on("click", function() {
    
 });
 
-// Setting interval to run checkTime function every 10 seconds
+// Setting interval to run checkTime function every 10 seconds; at the beginning of the hour, runs function to update screen
 setInterval(function(){
     if (moment().minute() == 0) {
         renderScreen();
     }
 }, 10000);
 
+// Render event table with appropriate color
 function renderScreen() {
-    // $("#5pm").addClass("table-success");
-
-
-    // Whatever the current hour (momement().hour()) is (e.g. 9,10,15,) find the 
-    // element with that ID and change this attribue (addClass "table-danger")
-    // Those with id's that are less than (addClass - "table-secondary")
-    // Those with id's that are greater than (addClass - "table-success")
+  var currentHour = (moment().hour());
+  console.log(currentHour);
+  var idArr = [];
+  $(".eventCol").each(function(){
+    idArr.push($(this).attr("id"));
+  })
+  console.log(idArr);
+ for (i = 0; i < idArr.length; i++){
+   if (currentHour == idArr[i]){
+     $("#" + idArr[i]).addClass("table-danger");
+   } 
+   if (idArr[i] < currentHour) {
+     $("#" + idArr[i]).addClass("table-secondary");
+   }
+   if (idArr[i] > currentHour) {
+     $("#" + idArr[i]).addClass("table-success");
+   }
+ }
 };
 
 // Clear All Events button, clears localStorage and all event column text
@@ -80,5 +94,3 @@ $(".clearEventsBtn").on("click", function(){
 });
 
 });
-
-
